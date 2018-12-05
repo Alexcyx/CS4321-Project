@@ -95,7 +95,10 @@ public class Tuple {
 		if(t.getSize() != this.value.length) return false;
 		return Arrays.equals(t.value, this.value);
 	}
-
+	
+	/**
+	 * @return the list contains the column values stored in the tuple
+	 */
 	public List<Long> getAllColumn() {
 		List<Long> ret = new ArrayList<>();
 		for (long val : value) {

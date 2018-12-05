@@ -100,7 +100,7 @@ public class BlockNestedJoinOperator extends JoinOperator{
 		int tuplesize = left.getUniqueSchema().size() * 4;
 		blocksize = Catalog.joinBuffer * ( (Catalog.pageSize)/tuplesize );
 //		System.out.println("blocksize:"+blocksize);
-		block = new ArrayList<>();
+		block = new ArrayList<>(blocksize);
 		nextPair();
 	}
 

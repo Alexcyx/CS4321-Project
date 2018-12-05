@@ -178,14 +178,16 @@ public class ParseWhere {
 			String rightColumnName = Tools.rebuildWholeColumnName(col_right);
 			
 			//just a simple implementation, may have bugs
-			
-			if( schema_left.indexOf(leftColumnName) != -1 ) {
-				res.get("left").add(col_left);
-				res.get("right").add(col_right);
-			} else {
-				res.get("right").add(col_left);
-				res.get("left").add(col_right);
+			if( exp instanceof EqualsTo) {
+				if( schema_left.indexOf(leftColumnName) != -1 ) {
+					res.get("left").add(col_left);
+					res.get("right").add(col_right);
+				} else {
+					res.get("right").add(col_left);
+					res.get("left").add(col_right);
+				}
 			}
+			
 			
 		}
 		return res;
